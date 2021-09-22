@@ -122,7 +122,7 @@ ___
 2.3 Repositories (aka Repos)
 2.4 The Standard Git Workflow
   
-**3 Advanced Git and Github Funtionalities**  
+**3 Advanced Git and Github Functionalities**  
 > 3.1 Branching  
 3.2 Merge Conflicts  
 3.3 When `r emo::ji("pile_of_poo")` Hits the Fence  
@@ -142,11 +142,11 @@ knitr::include_graphics("http://phdcomics.com/comics/archive/phd101212s.gif")
 ## 1 Motivation
 ### 1.1 Why Git and Github?
 
-- Git is a practically relevant technology, in particular within IT- and data-driven teams and organizations.<br><br> 
+- Git is a practically relevant technology, in particular within tech-/data-driven teams and organizations.<br><br> 
 - Mastering Git helps you improve your data science workflow, in particular in collaborative settings.<br><br> 
 - Github enables you to showcase your own work and skills publicly.<br><br> 
-- Releasing source code and data via Github reflects important open science principles (e.g., accessibility, reproducibility).<br><br>
-- Your assignments will be distributed and must be handed-in via Git and Github.
+- Releasing source code and data via Github reflects important open science principles (e.g., accessibility and reproducibility).<br><br>
+- Your assignments will be distributed and must be handed-in via Github. We can track your progress and help you along the way.
 
 .footnote[
 _Src: [phdcomics](http://phdcomics.com)_
@@ -173,9 +173,7 @@ knitr::include_graphics("https://pbs.twimg.com/profile_images/141499056440826266
 ### 1.3 What is Github?
 [GitHub](https://github.com/) is a platform that let's you host and distribute Git-based projects publicly (as such, it largely complements Git). It enables remote collaboration on these projects and is particularly popular among developers and data scientists. Other people can contribute to your code base, while you can also contribute to other projects.
 
-.footnote[
-*Note: While Git is essentially a software that runs locally on your computer, Github is a web-service which let's you share your files and projects with others remotely.*
-]
+While Git is essentially a software that runs locally on your computer, Github is a web-service which let's you share your files and projects with others remotely.
 
 ???
 keep track of:
@@ -223,14 +221,13 @@ git config --global user.name <username>
 git config --global user.email <email>
 git config --global --list
 ```
-The global config file is generally stored under `C:\Users\...\.gitconfig`
 
 **2. Step:** Create a personal access token (PAT)
 
 Create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) on Github with which you login instead of your Github password (token-based authentication mandatory as of [July 2020](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)). Use this token as passwort whenever your are prompted by Git to enter your username and password!
 
 ???
-show steps live
+
 
 ---
 
@@ -241,9 +238,8 @@ Repositories are directories (i.e. folders) of files that are managed by Git. Us
 
 **Repository for this presentation:**
 ```{r}
-list.files(".")
+list.files("C:/Users/s_scho53/Desktop/L09_Desktop/workshops/git-and-github")
 ```
-
 
 ---
 
@@ -254,7 +250,7 @@ name: create-repo
 
 .panelset[
 .panel[.panel-name[Local First]
-1. For each assignment, or based project in general, create a local folder on your computer.
+1. For each assignment, or project in general, create a local folder on your computer.
 2. Make it an RStudio Project.
 3. Make it a Git repository and link to the remote Github repository.
 ```
@@ -276,7 +272,7 @@ git remote -v
 *Note: `git clone` automatically links your local and remote repository, i.e. no need to use `git remote add`.*
 ]
 .panel[.panel-name[Remote First (Fork)]
-**Forking:** Create a copy of someone else's repo in your Github account, make changes locally without affecting the original repo and then propose own changes to the original repo.
+**Forking:** Create a copy of someone else's repo in your Github account, make changes locally without affecting the original repo and then propose your own changes to the original repo.
 ]
 ]
 
@@ -292,7 +288,7 @@ git remote -v
 
 **Commit Changes:** A *commit* creates a snapshot of your repository, i.e. it records the current state of all the files included in your repo.
 
-1. Tell Git which changes you would like to transmit to your remote repository. These changes are submitted to the so-called *staging area*, a "waiting room" where you gather all changes for the commit).
+1. Tell Git which changes you would like to transmit to your remote repository. These changes are submitted to the so-called *staging area*, a "waiting room" where you gather all changes for the commit.
 ```
 git add <file/dir>
 ```
@@ -315,20 +311,15 @@ git commit -m "enter meaningful commit message"
 knitr::include_graphics("https://happygitwithr.com/img/commit-diff-sha-tag.png")
 ```
 
-**Commit history**: The sequence of commits over time determines the commit history (stored in your repos `.git` folder). Every commit is accompanied by a commit message as well as a SHA hash which unique identifies each commit.
+**Commit history**: The sequence of commits over time determines the commit history (stored in your repos `.git` folder).
+
+Every commit is accompanied by a commit message as well as a SHA hash which unique identifies each commit.
 
 **Diff:** A diff records the differences between two commits (i.e. repository snapshots). The most recent state of your repository and files is hence an accumulation of the initial commit plus any number of diffs.
 
 .footnote[
 *Note: Git mostly works with plain text files (e.g., `.md`, `.Rmd`, `.R`, `.md`, `.html`, etc.). It won't be able to track changes in binary files such as Word documents, Excel spreadsheets, PDF files or images.*
 ]
-
----
-
-## 2 Git and Github Fundamentals
-### 2.4 The Standard Git Workflow
-
-Diff Screenshot from RStudio Pane
 
 ---
 
@@ -348,8 +339,7 @@ git push --set-upstream origin main
 ```
 
 ???
-main is the name of the branch
-- browse through commit history
+main is the name of the default branch
 
 ---
 
@@ -384,10 +374,10 @@ Usually, using simply `git pull` will be sufficient since you have already estab
 
 ---
 
-## 3 Advanced Git and Github Funtionalities
+## 3 Advanced Git and Github Functionalities
 ### 3.1 Branching
 
-Branches allow you to "detour" from your main code base (i.e. repository). You create a new branch ("sub-repository") in which you can work on the same files without, however, affecting the main code base.
+Branches allow you to "detour" from your main code base (i.e. repository). You create a new snapshot of your repository in which you can work on the same files without affecting the main code base.
 
 ```{r, echo=F, out.width='50%', out.extra='style="float:right; padding:10px"'}
 knitr::include_graphics("https://www.nobledesktop.com/image/gitresources/git-branches-merge.png")
@@ -406,7 +396,7 @@ This is particularly useful if you are working in a time and would like to work 
 
 ---
 
-## 3 Advanced Git and Github Funtionalities
+## 3 Advanced Git and Github Functionalities
 ### 3.1 Branching
 
 .panelset[
@@ -418,8 +408,8 @@ git branch -v
 ```
 
 ```
-  experimentation 0232129 update
-* master          0232129 update
+>   experimentation <commit SHA> <commit message>
+> * master          <commit SHA> <commit message>
 ```
 Note that the default branch of your local repository is called `master`. In contrast, when you create a remote Github repository, the default branch is called `main`. The `*` here indicates the current branch, aka `HEAD`).
 ]
@@ -431,8 +421,8 @@ git branch -v
 ```
 
 ```
-* experimentation 0232129 update
-  master          0232129 update
+> * experimentation <commit SHA> <commit message>
+>   master          <commit SHA> <commit message>
 ```
 
 Under the hood, `git checkout` updates all the files in your local repo to reflect the state of your `experimentation` branch. From now on, all new commits will be assigned and pushed to this branch.
@@ -446,7 +436,7 @@ git checkout master
 git merge experimentation
 ```
 
-Merges can be made between branches in the same repo as well as between original and forked repositories. The latter type of merges go by the name of **pull requests** (you request for the changes in your fork to be integrated in the original repository).it reviewing and merging by the maintainer
+Merges can be made between branches in the same repo as well as between original and forked repositories. The latter type of merges go by the name of **pull requests** (you request for the changes in your fork to be integrated in the original repository).
 ]
 ]
 
@@ -455,10 +445,10 @@ PR: mechanism for making contributions ot open source projects
 
 ---
 
-## 3 Advanced Git and Github Funtionalities
+## 3 Advanced Git and Github Functionalities
 ### 3.2 Merge Conflicts
 
-Merge conflicts arise when competing commits address changes made to the same file or lines of code. Most likely you will encounter them when there are two commits involving edits of the same code snippet. 
+Merge conflicts arise when contradictory commits address changes made to the same file or lines of code. Most likely you will encounter them when there are two commits involving edits of the same code snippet. 
 
 ```
 <<<<<<< HEAD
@@ -472,12 +462,12 @@ Merge conflicts must be resolved manually by a new commit, which either selects 
 
 ---
 
-## 3 Advanced Git and Github Funtionalities
+## 3 Advanced Git and Github Functionalities
 ### 3.2 Merge Conflicts
 
 Merge conflicts are easier to prevent if
 - you avoid working on the exact same code sections,
-- you commit and push changes and pull changes by other regularly (*pull-commit-push workflow*).
+- you commit and push changes and pull changes by other regularly (*commit-pull-push workflow*).
 
 --
 
@@ -494,8 +484,7 @@ Almost certainty, you will come to a frustrating point where you messed somethin
 
 ---
 
-
-## 3 Advanced Git and Github Funtionalities
+## 3 Advanced Git and Github Functionalities
 ### 3.4 File Tracking
 
 By default, if your run `git add .`, Git will stage all changes for the next commit. Oftentimes, however, you don't want Git to track all files in your repository and have the uploaded to the remote:
@@ -507,12 +496,12 @@ By default, if your run `git add .`, Git will stage all changes for the next com
 Use the special `.gitignore` file to specify which files you would like to exclude from tracking and uploading to Github. You can exclude individual files or entire directories.
 
 .footnote[
-*Note: .gitignore templates are available [online](https://github.com/github/gitignore) for the most popular projects types and programming languages.* 
+*Note: `.gitignore` templates are available [online](https://github.com/github/gitignore) for the most popular projects types and programming languages.* 
 ]
 
 ---
 
-## 3 Advanced Git and Github Funtionalities
+## 3 Advanced Git and Github Functionalities
 ### 3.5 Github Issues
 
 ```{r, echo=F, out.width='45%', out.extra='style="float:right; padding:10px"'}
@@ -526,18 +515,13 @@ The Github `Issues` function is like a bug track for your repository. You can wr
 - You can also close an issue by using the issue number as well as one of the following keywords in your commit message: `close`, `closes`, `closed`, `fix`, `fixes`, `fixed`, `resolve`, `resolves`, `resolved`.
 
 ???
-- in the assignments, you will be able to use issues and assign them to us if you need our help
-- show in issues:
-  - how to link to someone
-  - how to reference other issues
-  - how to reference code/lines of code
-  - how to embed images
-  
+in the assignments, you will be able to use issues and assign them to us if you need our help
+
 ---
 
 ## Resources
 
-**Chacon, S./Straub, B. (2021):** Pro Git: Everything You Need to Know about Git, chapter 1 -3. 2nd Edition. URL: https://git-scm.com/book/en/v2
+**Chacon, S./Straub, B. (2021):** Pro Git: Everything You Need to Know about Git, chapter 1 -3. 2nd Edition. URL: https://git-scm.com/book/en/v2.
 
 
-**Bryan, J./Hester, J./The STAT 545 TAs (2021):** Happy Git and GitHub for the useR. URL: https://happygitwithr.com/
+**Bryan, J./Hester, J./The STAT 545 TAs (2021):** Happy Git and GitHub for the useR. URL: https://happygitwithr.com/.

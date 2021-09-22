@@ -13,3 +13,9 @@
 
 # Slides
 slides/
+
+# Notes
+live-tutorial-notes.txt
+
+# .gitignore
+.gitignore
