@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Machine Learning in R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Schölzel" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/xaringanExtra-webcam-0.0.1/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="github-repo" content="simonschoe/introduction-to-the-tidyverse"/>
+    <meta name="twitter:title" content="Introduction to the Tidyverse"/>
+    <meta name="twitter:description" content="2 hours introductory workshop on the `tidyverse` meta-package."/>
+    <meta name="twitter:url" content="https://simonschoe.github.io/introduction-to-the-tidyverse"/>
+    <meta name="twitter:image" content="https://simonschoe.github.io/introduction-to-the-tidyverse/img/share-card.png"/>
+    <meta name="twitter:image:alt" content="Title slide for Introduction to the Tidyverse"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="og:title" content="Introduction to the Tidyverse"/>
+    <meta property="og:description" content="2 hours introductory workshop on the `tidyverse` meta-package."/>
+    <meta property="og:url" content="https://simonschoe.github.io/introduction-to-the-tidyverse"/>
+    <meta property="og:image" content="https://simonschoe.github.io/introduction-to-the-tidyverse/img/share-card.png"/>
+    <meta property="og:image:alt" content="Title slide for Introduction to the Tidyverse"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Simon Schölzel"/>
+    <script src="libs/xaringanExtra-progressBar-0.0.1/progress-bar.js"></script>
+    <link rel="stylesheet" href="custom/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom/custom-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+class: center, middle, hide-count
+count: false
+
+# Machine Learning in R
+### Version Control with Git and Github
+
+___
+
+**Simon Schölzel**
+
+Winter Term 2021/2022  
+.small[(updated: 2021-09-22)]
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;a href="https://www.wiwi.uni-muenster.de/"&gt;&lt;img src="https://www.wiwi.uni-muenster.de/fakultaet/sites/all/themes/wwucd/assets/images/logos/secondary_wiwi_aacsb_german.jpg" alt="fb4-logo" height="45"&gt;&lt;/a&gt; &lt;a href="https://www.wiwi.uni-muenster.de/ctrl/aktuelles"&gt;&lt;img src="https://www.wiwi.uni-muenster.de/ctrl/sites/all/themes/wwucd/assets/images/logos/berenslogo5.jpg" alt="ftb-logo" height="45"&gt;&lt;/a&gt; &lt;a href="https://www.wiwi.uni-muenster.de/iff2/de/news"&gt;&lt;img src="https://www.wiwi.uni-muenster.de/iff2/sites/all/themes/wwucd/assets/images/logos/logo_iff2_en2.jpg" alt="ipb-logo" height="45"&gt;&lt;/a&gt;
+
+---
+
+## Agenda
+
+**1 Motivation**  
+&gt; 1.1 Why Git and Github?  
+1.2 What is Git?  
+1.3 What is Github?
+
+**2 Git and Github Fundamentals**  
+&gt; 2.1 Setup and Installtion  
+2.2 Authentication  
+2.3 Repositories (aka Repos)
+2.4 The Standard Git Workflow
+  
+**3 Advanced Git and Github Funtionalities**  
+&gt; 3.1 Branching  
+3.2 Merge Conflicts  
+3.3 When 💩 Hits the Fence  
+3.4 File Tracking  
+3.5 Github Issues
+
+<style>.xe__progress-bar__container {
+  bottom:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #000066;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+---
+
+&lt;img src="http://phdcomics.com/comics/archive/phd101212s.gif" width="40%" style="float:right; padding:20px" /&gt;
+
+## 1 Motivation
+### 1.1 Why Git and Github?
+
+- Git is a practically relevant technology, in particular within IT- and data-driven teams and organizations.&lt;br&gt;&lt;br&gt; 
+- Mastering Git helps you improve your data science workflow, in particular in collaborative settings.&lt;br&gt;&lt;br&gt; 
+- Github enables you to showcase your own work and skills publicly.&lt;br&gt;&lt;br&gt; 
+- Releasing source code and data via Github reflects important open science principles (e.g., accessibility, reproducibility).&lt;br&gt;&lt;br&gt;
+- Your assignments will be distributed and must be handed-in via Git and Github.
+
+.footnote[
+_Src: [phdcomics](http://phdcomics.com)_
+]
+
+???
+Learning Git appears hard at the beginning, but only because you are used to your own (imperfect) workflows
+
+---
+
+## 1 Motivation
+
+&lt;img src="https://git-scm.com/images/logo@2x.png" width="30%" style="float:right; padding:10px" /&gt;
+
+### 1.2 What is Git?
+[Git](https://git-scm.com/) is a decentralized **version control system** (VCS) that helps you track changes of your files (e.g., data, figues, documents, code) over time. Comparable to Word's "track changes" feature, only more powerful. It grants you access to your entire file history and let's you roll-back to previous versions of your files.
+
+&lt;img src="https://pbs.twimg.com/profile_images/1414990564408262661/r6YemvF9_400x400.jpg" width="20%" style="float:right; padding:10px" /&gt;
+
+### 1.3 What is Github?
+[GitHub](https://github.com/) is a platform that let's you host and distribute Git-based projects publicly (as such, it largely complements Git). It enables remote collaboration on these projects and is particularly popular among developers and data scientists. Other people can contribute to your code base, while you can also contribute to other projects.
+
+.footnote[
+*Note: While Git is essentially a software that runs locally on your computer, Github is a web-service which let's you share your files and projects with others remotely.*
+]
+
+???
+keep track of:
+- what has changed
+- who has changed it
+- when was it changed
+your collaborator may be your future self
+
+---
+
+## 1 Motivation
+
+&lt;img src="./img/github-corona-warn-app.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+.center[*Src: [Corona-Warn-App Github Repository](https://github.com/corona-warn-app)*]
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.1 Setup and Installtion
+
+Install the [Git Client](https://git-scm.com/) on your local machine and create a [Github](https://github.com/) account. In case you struggle with one of the setup steps, refer to [Happy Git and GitHub for the useR, ch. 4-6](https://happygitwithr.com/github-acct.html).
+
+In general, you have various options for using Git on your computer:
+- Integrated Development Environment (e.g., RStudio, Visual Studio Code)
+- Dedicated Git Clients (e.g., Gitkraken)
+- Git Command Line Interface (CLI)
+
+???
+In the following, we will see all examples in the context of the RStudio IDE as well as executed in the CLI, so that you get a general understanding of what is happening under the hood.
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.2 Authentication
+
+When you use Git for the first time, you must introduce yourself to Git (i.e. choose a username and mail-address with which you authenticate yourself). If your credentials conform with your Github credentials, Git and Github will be linked.
+
+**1. Step:** Run in the terminal (i.e. using the git CLI)
+
+```
+git config --global user.name &lt;username&gt;
+git config --global user.email &lt;email&gt;
+git config --global --list
+```
+The global config file is generally stored under `C:\Users\...\.gitconfig`
+
+**2. Step:** Create a personal access token (PAT)
+
+Create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) on Github with which you login instead of your Github password (token-based authentication mandatory as of [July 2020](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)). Use this token as passwort whenever your are prompted by Git to enter your username and password!
+
+???
+show steps live
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.3 Repositories (aka Repos)
+
+Repositories are directories (i.e. folders) of files that are managed by Git. Usually, you will have one repository for each project (e.g., assignment). Repositories can live *locally* on your computer as well as *remotely* in the cloud (e.g., Github).
+
+**Repository for this presentation:**
+
+```r
+list.files(".")
+```
+
+```
+&gt;  [1] "01_intro.Rmd"         "custom"               "git-and-github.Rproj"
+&gt;  [4] "img"                  "index.html"           "index.Rmd"           
+&gt;  [7] "libs"                 "README.md"            "renv"                
+&gt; [10] "renv.lock"            "slides"
+```
+
+
+---
+
+name: create-repo
+
+## 2 Git and Github Fundamentals
+### 2.3 Repositories (aka Repos)
+
+.panelset[
+.panel[.panel-name[Local First]
+1. For each assignment, or based project in general, create a local folder on your computer.
+2. Make it an RStudio Project.
+3. Make it a Git repository and link to the remote Github repository.
+```
+git init
+git remote add origin &lt;remote url&gt;
+git remote -v
+```
+*Note: Here `origin` is the "shortname" of the remote repository. You can use any other name instead, however, `origin` is the Git default and hence works nicely out of the box.*
+]
+.panel[.panel-name[Remote First (Clone)]
+**Cloning:** Create a local copy of your Github repo, make changes and apply changes to your remote repo.
+  
+1. Create a new repository on your Github account.
+2. Copy its contents to your local repository (using CLI or RStudio).
+```
+git clone &lt;remote url&gt;
+git remote -v
+```
+*Note: `git clone` automatically links your local and remote repository, i.e. no need to use `git remote add`.*
+]
+.panel[.panel-name[Remote First (Fork)]
+**Forking:** Create a copy of someone else's repo in your Github account, make changes locally without affecting the original repo and then propose own changes to the original repo.
+]
+]
+
+???
+- show cloning step in terminal as well as RStudio IDE
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.4 The Standard Git Workflow
+
+**Make Changes:** Make local changes to your repository (e.g., add new files, delete files, rename files or edit files). These changes are not yet reflected in your remote Github repo! Check changes using `git status`.
+
+**Commit Changes:** A *commit* creates a snapshot of your repository, i.e. it records the current state of all the files included in your repo.
+
+1. Tell Git which changes you would like to transmit to your remote repository. These changes are submitted to the so-called *staging area*, a "waiting room" where you gather all changes for the commit).
+```
+git add &lt;file/dir&gt;
+```
+2. Commit your changes to the remote repository, by taking a snapshot of repository.
+```
+git commit -m "enter meaningful commit message" 
+```
+
+.footnote[*Note: Commit messages state the intent of your changes. They should briefly describe the changes that you are about to submit.*]
+
+???
+- you can also ammend the previous commit until you're happy with what is included (with `git commit --amend`)
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.4 The Standard Git Workflow
+
+&lt;img src="https://happygitwithr.com/img/commit-diff-sha-tag.png" width="50%" style="float:right; padding:20px" /&gt;
+
+**Commit history**: The sequence of commits over time determines the commit history (stored in your repos `.git` folder). Every commit is accompanied by a commit message as well as a SHA hash which unique identifies each commit.
+
+**Diff:** A diff records the differences between two commits (i.e. repository snapshots). The most recent state of your repository and files is hence an accumulation of the initial commit plus any number of diffs.
+
+.footnote[
+*Note: Git mostly works with plain text files (e.g., `.md`, `.Rmd`, `.R`, `.md`, `.html`, etc.). It won't be able to track changes in binary files such as Word documents, Excel spreadsheets, PDF files or images.*
+]
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.4 The Standard Git Workflow
+
+Diff Screenshot from RStudio Pane
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.4 The Standard Git Workflow
+
+**Push Changes:** When you have taken one or several snapshots (i.e. commits), you are ready to upload your changes to your remote Github repo using `git push`.
+
+```
+git push
+```
+
+If you have first created a local repository and then linked it to your Github repo subsequently (["local first"](#create-repo)), Git may prompt you once to establish an upstream connection to your remote repo.
+
+```
+git push --set-upstream origin main
+```
+
+???
+main is the name of the branch
+- browse through commit history
+
+---
+
+## 2 Git and Github Fundamentals
+### 2.4 The Standard Git Workflow
+
+&lt;img src="./img/git-github-relation.png" width="37.5%" style="float:right; padding:10px" /&gt;
+
+**Pull Changes:** Pulling is essentially the opposite of `git push`, it let's you download recent changes (e.g., submitted and pushed commits by your collaborators) and update your local repo. 
+
+```
+# fetch the new updates from the remote
+git fetch origin
+
+# merge the changes into your local repo
+git merge origin/master master
+
+# or use the pull shortcut for fetch + merge
+git pull origin master
+```
+Usually, using simply `git pull` will be sufficient since you have already established the connection between your local and remote repository.
+
+.pull-right[.pull-right[.footnote[
+*Src: [Bryan (2018)](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)*
+]]]
+
+???
+- each user has an own version of the repo locally
+- Github acts as the central node for holding the master version of the repo---
+
+---
+
+## 3 Advanced Git and Github Funtionalities
+### 3.1 Branching
+
+Branches allow you to "detour" from your main code base (i.e. repository). You create a new branch ("sub-repository") in which you can work on the same files without, however, affecting the main code base.
+
+&lt;img src="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png" width="50%" style="float:right; padding:10px" /&gt;
+
+Branching enables you to deviate from the main code base to
+- develop a new analysis while keeping the main code intact,
+- experiment with new ideas without breaking the code base,
+- create a back-up of your code base.
+
+This is particularly useful if you are working in a time and would like to work on your code in parallel (e.g., different people working on different features or tasks).
+
+.pull-right[.pull-right[.footnore[
+*Src: [noble desktop](https://www.nobledesktop.com/learn/git/git-branches)*
+]]]
+
+---
+
+## 3 Advanced Git and Github Funtionalities
+### 3.1 Branching
+
+.panelset[
+.panel[.panel-name[Create New Branch]
+```
+git branch experimention
+
+git branch -v
+```
+
+```
+  experimentation 0232129 update
+* master          0232129 update
+```
+Note that the default branch of your local repository is called `master`. In contrast, when you create a remote Github repository, the default branch is called `main`. The `*` here indicates the current branch, aka `HEAD`).
+]
+.panel[.panel-name[Switch Branches]
+```
+git checkout experimention
+
+git branch -v
+```
+
+```
+* experimentation 0232129 update
+  master          0232129 update
+```
+
+Under the hood, `git checkout` updates all the files in your local repo to reflect the state of your `experimentation` branch. From now on, all new commits will be assigned and pushed to this branch.
+]
+.panel[.panel-name[Merge Branches]
+Make some changes and merge these changes back into the `master` branch. `git merge` integrates these changes back into the `master` branch.
+
+```
+git checkout master
+
+git merge experimentation
+```
+
+Merges can be made between branches in the same repo as well as between original and forked repositories. The latter type of merges go by the name of **pull requests** (you request for the changes in your fork to be integrated in the original repository).it reviewing and merging by the maintainer
+]
+]
+
+???
+PR: mechanism for making contributions ot open source projects
+
+---
+
+## 3 Advanced Git and Github Funtionalities
+### 3.2 Merge Conflicts
+
+Merge conflicts arise when competing commits address changes made to the same file or lines of code. Most likely you will encounter them when there are two commits involving edits of the same code snippet. 
+
+```
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+your changes
+=======
+"incoming" changes
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; experimentation
+```
+
+Merge conflicts must be resolved manually by a new commit, which either selects the correct change from the two proposed changes or integrates the changes into each other.
+
+---
+
+## 3 Advanced Git and Github Funtionalities
+### 3.2 Merge Conflicts
+
+Merge conflicts are easier to prevent if
+- you avoid working on the exact same code sections,
+- you commit and push changes and pull changes by other regularly (*pull-commit-push workflow*).
+
+--
+
+### 3.3 When 💩 Hits the Fence
+
+Almost certainty, you will come to a frustrating point where you messed something up in your Git history. Unless you would like to go down the (extremely technical) rabbit hole of solving it using plain Git, you may keep the following points in mind: 
+
+- As long as you have not pushed your changes to Github, the remote repo will still be clean!
+- As a last resort, you can always make a local copy of your repo, clone the remote, and start off new.
+
+.footnote[
+*Note: In case you prefer working with the CLI instead of the RStudio IDE and Git GUI, you may find this [cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf) helpful.*
+]
+
+---
+
+
+## 3 Advanced Git and Github Funtionalities
+### 3.4 File Tracking
+
+By default, if your run `git add .`, Git will stage all changes for the next commit. Oftentimes, however, you don't want Git to track all files in your repository and have the uploaded to the remote:
+- Archived files
+- User-specific settings
+- Privacy-sensitive files
+- Plain notes
+
+Use the special `.gitignore` file to specify which files you would like to exclude from tracking and uploading to Github. You can exclude individual files or entire directories.
+
+.footnote[
+*Note: .gitignore templates are available [online](https://github.com/github/gitignore) for the most popular projects types and programming languages.* 
+]
+
+---
+
+## 3 Advanced Git and Github Funtionalities
+### 3.5 Github Issues
+
+&lt;img src="./img/github-dplyr-issues.png" width="45%" style="float:right; padding:10px" /&gt;
+
+The Github `Issues` function is like a bug track for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
+
+**Pro Tips:**
+- If you use the issue number (e.g., `#6022`) within your commit message, the commit will be referenced in the issue.
+- You can also close an issue by using the issue number as well as one of the following keywords in your commit message: `close`, `closes`, `closed`, `fix`, `fixes`, `fixed`, `resolve`, `resolves`, `resolved`.
+
+???
+- in the assignments, you will be able to use issues and assign them to us if you need our help
+- show in issues:
+  - how to link to someone
+  - how to reference other issues
+  - how to reference code/lines of code
+  - how to embed images
+  
+---
+
+## Resources
+
+**Chacon, S./Straub, B. (2021):** Pro Git: Everything You Need to Know about Git, chapter 1 -3. 2nd Edition. URL: https://git-scm.com/book/en/v2
+
+
+**Bryan, J./Hester, J./The STAT 545 TAs (2021):** Happy Git and GitHub for the useR. URL: https://happygitwithr.com/
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
