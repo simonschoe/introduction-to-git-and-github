@@ -52,42 +52,6 @@ xaringanExtra::use_extra_styles(
   hover_code_line = T,
   mute_unhighlighted_code = T
 )
-
-metathis::meta() %>%
-  meta_name("github-repo" = "simonschoe/introduction-to-the-tidyverse") %>% 
-  meta_social(
-    title = "Introduction to the Tidyverse",
-    description = "2 hours introductory workshop on the `tidyverse` meta-package.",
-    url = "https://simonschoe.github.io/introduction-to-the-tidyverse",
-    image = "https://simonschoe.github.io/introduction-to-the-tidyverse/img/share-card.png",
-    image_alt = "Title slide for Introduction to the Tidyverse",
-    og_type = "website",
-    og_author = "Simon Schölzel",
-    twitter_card_type = "summary_large_image"
-  )
-```
-
-
-```{css, include=FALSE}
-.with-logo::before {
-	content: '';
-	width: 110px;
-	height: 126px;
-	position: absolute;
-	top: 0.5em;
-	right: 0.5em;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-.logo-dplyr::before {
-	background-image: url(https://git-scm.com/images/logo@2x.png);
-}
-.logo-purrr::before {
-	background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/purrr.png);
-}
-.logo-plumber::before {
-	background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/plumber.png);
-}
 ```
 
 class: center, middle, hide-count
@@ -122,7 +86,7 @@ ___
 2.3 Repositories (aka Repos)  
 2.4 The Standard Git Workflow
   
-**3 Advanced Git and Github Functionalities**  
+**3 Advanced Git and Github Concepts**  
 > 3.1 Branching  
 3.2 Merge Conflicts  
 3.3 When `r emo::ji("pile_of_poo")` Hits the Fence  
@@ -374,7 +338,7 @@ Usually, using simply `git pull` will be sufficient since you have already estab
 
 ---
 
-## 3 Advanced Git and Github Functionalities
+## 3 Advanced Git and Github Concepts
 ### 3.1 Branching
 
 Branches allow you to "detour" from your main code base (i.e. repository). You create a new snapshot of your repository in which you can work on the same files without affecting the main code base.
@@ -396,7 +360,7 @@ This is particularly useful if you are working in a team and would like to work 
 
 ---
 
-## 3 Advanced Git and Github Functionalities
+## 3 Advanced Git and Github Concepts
 ### 3.1 Branching
 
 .panelset[
@@ -445,7 +409,7 @@ PR: mechanism for making contributions ot open source projects
 
 ---
 
-## 3 Advanced Git and Github Functionalities
+## 3 Advanced Git and Github Concepts
 ### 3.2 Merge Conflicts
 
 Merge conflicts arise when contradictory commits address changes made to the same file or lines of code. Most likely you will encounter them when there are two commits involving edits of the same code snippet. 
@@ -462,7 +426,7 @@ Merge conflicts must be resolved manually by a new commit, which either selects 
 
 ---
 
-## 3 Advanced Git and Github Functionalities
+## 3 Advanced Git and Github Concepts
 ### 3.2 Merge Conflicts
 
 Merge conflicts are easier to prevent if
@@ -484,7 +448,7 @@ Almost certainly, you will come to a frustrating point where you messed somethin
 
 ---
 
-## 3 Advanced Git and Github Functionalities
+## 3 Advanced Git and Github Concepts
 ### 3.4 File Tracking
 
 By default, if you run `git add .`, Git will stage all changes for the next commit. Oftentimes, however, you don't want Git to track all files in your repository and have them uploaded to the remote:
@@ -501,7 +465,7 @@ Use the special `.gitignore` file in your repository to specify which files you 
 
 ---
 
-## 3 Advanced Git and Github Functionalities
+## 3 Advanced Git and Github Concepts
 ### 3.5 Github Issues
 
 ```{r, echo=F, out.width='45%', out.extra='style="float:right; padding:10px"'}
