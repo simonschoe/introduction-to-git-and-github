@@ -9,10 +9,7 @@
 .Ruserdata
 
 # RStudio files
-.Rproj.user/
+.Rproj.user
 
 # Slides
 slides/
-
-# Notes
-live-tutorial-notes.txt
