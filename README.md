@@ -22,6 +22,6 @@
 **3 Advanced Git and GitHub Concepts**  
 > 3.1 Branching  
 3.2 Merge Conflicts  
-3.3 When `r emo::ji("pile_of_poo")` Hits the Fence  
+3.3 When :poop: Hits the Fence  
 3.4 File Tracking  
 3.5 GitHub Issues
