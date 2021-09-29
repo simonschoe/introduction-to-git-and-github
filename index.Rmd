@@ -110,7 +110,7 @@ knitr::include_graphics("http://phdcomics.com/comics/archive/phd101212s.gif")
 - Mastering Git helps you improve your data science workflow, in particular in collaborative settings.<br><br> 
 - GitHub enables you to showcase your own work and skills publicly.<br><br> 
 - Releasing source code and data via GitHub reflects open science principles (e.g., accessibility and reproducibility).<br><br>
-- Yourssignments will be distributed and handed-in via GitHub. Also, we can track your progress and help you along the way.
+- Your assignments will be distributed and handed-in via GitHub. Also, we can track your progress and help you along the way.
 
 .footnote[
 _Src: [phdcomics](http://phdcomics.com)_
@@ -128,7 +128,7 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/e/
 ```
 
 ### 1.2 What is Git?
-[Git](https://git-scm.com/) is a decentralized **version control system** (VCS) that helps you track changes of your files (e.g., data, figues, documents, code) over time. Somewhat comparable to Word's "track changes" feature, only more powerful. It records your entire file history and let's you roll-back to previous versions of your files.
+[Git](https://git-scm.com/) is a decentralized **version control system** (VCS) that helps you track changes of your files (e.g., data, figures, documents, code) over time. Somewhat comparable to Word's "track changes" feature, only more powerful. It records your entire file history and let's you roll-back to previous versions of your files.
 
 ???
 keep track of:
@@ -172,7 +172,7 @@ Install the [Git Client](https://git-scm.com/) on your local machine and create 
 
 In general, you have various options for using Git on your computer:
 - Integrated Development Environment (e.g., RStudio, Visual Studio Code)
-- Dedicated Git Clients (e.g., GitKraken)
+- Dedicated Git Client (e.g., GitKraken)
 - Git Command Line Interface (CLI)
 
 ???
@@ -482,7 +482,7 @@ Use the special `.gitignore` file in your repository to specify which files you 
 knitr::include_graphics("./img/github-dplyr-issues.png")
 ```
 
-The GitHub `Issues` function is like a bug track for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
+The GitHub `Issues` function is like a bug tracker for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
 
 **Pro Tips:**
 - If you use the issue number (e.g., `#6022`) within your commit message, the commit will be referenced in the issue.
