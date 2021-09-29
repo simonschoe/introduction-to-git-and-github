@@ -91,7 +91,7 @@ Winter Term 2021/2022
 - Mastering Git helps you improve your data science workflow, in particular in collaborative settings.&lt;br&gt;&lt;br&gt; 
 - GitHub enables you to showcase your own work and skills publicly.&lt;br&gt;&lt;br&gt; 
 - Releasing source code and data via GitHub reflects open science principles (e.g., accessibility and reproducibility).&lt;br&gt;&lt;br&gt;
-- Yourssignments will be distributed and handed-in via GitHub. Also, we can track your progress and help you along the way.
+- Your assignments will be distributed and handed-in via GitHub. Also, we can track your progress and help you along the way.
 
 .footnote[
 _Src: [phdcomics](http://phdcomics.com)_
@@ -107,7 +107,7 @@ Learning Git appears hard at the beginning, but only because you are used to you
 &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1280px-Git-logo.svg.png" width="30%" style="float:right; padding:10px" /&gt;
 
 ### 1.2 What is Git?
-[Git](https://git-scm.com/) is a decentralized **version control system** (VCS) that helps you track changes of your files (e.g., data, figues, documents, code) over time. Somewhat comparable to Word's "track changes" feature, only more powerful. It records your entire file history and let's you roll-back to previous versions of your files.
+[Git](https://git-scm.com/) is a decentralized **version control system** (VCS) that helps you track changes of your files (e.g., data, figures, documents, code) over time. Somewhat comparable to Word's "track changes" feature, only more powerful. It records your entire file history and let's you roll-back to previous versions of your files.
 
 ???
 keep track of:
@@ -147,7 +147,7 @@ Install the [Git Client](https://git-scm.com/) on your local machine and create 
 
 In general, you have various options for using Git on your computer:
 - Integrated Development Environment (e.g., RStudio, Visual Studio Code)
-- Dedicated Git Clients (e.g., GitKraken)
+- Dedicated Git Client (e.g., GitKraken)
 - Git Command Line Interface (CLI)
 
 ???
@@ -188,14 +188,10 @@ list.files("C:/Users/s_scho53/Desktop/.../version-control-with-git-and-github", 
 ```
 
 ```
-&gt;  [1] "."                    ".."                  
-&gt;  [3] ".git"                 ".gitignore"          
-&gt;  [5] ".Rprofile"            ".Rproj.user"         
-&gt;  [7] "custom"               "git-and-github.Rproj"
-&gt;  [9] "img"                  "index.html"          
-&gt; [11] "index.Rmd"            "libs"                
-&gt; [13] "README.md"            "renv"                
-&gt; [15] "renv.lock"            "slides"
+&gt;  [1] "."                    ".."                   ".git"                 ".gitignore"          
+&gt;  [5] ".Rprofile"            ".Rproj.user"          "custom"               "git-and-github.Rproj"
+&gt;  [9] "img"                  "index.html"           "index.Rmd"            "libs"                
+&gt; [13] "README.md"            "renv"                 "renv.lock"            "slides"
 ```
 
 ---
@@ -458,7 +454,7 @@ Use the special `.gitignore` file in your repository to specify which files you 
 
 &lt;img src="./img/github-dplyr-issues.png" width="45%" style="float:right; padding:10px" /&gt;
 
-The GitHub `Issues` function is like a bug track for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
+The GitHub `Issues` function is like a bug tracker for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
 
 **Pro Tips:**
 - If you use the issue number (e.g., `#6022`) within your commit message, the commit will be referenced in the issue.
