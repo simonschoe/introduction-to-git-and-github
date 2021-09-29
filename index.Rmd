@@ -482,7 +482,7 @@ Use the special `.gitignore` file in your repository to specify which files you 
 knitr::include_graphics("./img/github-dplyr-issues.png")
 ```
 
-The GitHub `Issues` function is like a bug tracker for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
+The GitHub `Issues` feature is like a bug tracker for your repository. You can write issues using `markdown`. You can also re-purpose issues as TODO lists, idea walls or for code discussions and reviews. You can assign issues to people to highlight who is responsible for it.
 
 **Pro Tips:**
 - If you use the issue number (e.g., `#6022`) within your commit message, the commit will be referenced in the issue.
